@@ -13,7 +13,7 @@ jobs:
       - run:
           command: npx codeceptjs run
       - store_test_results:
-          path: /tmp/test-results
+          path: /output
 workflows:
   e2e-test:
     jobs:
