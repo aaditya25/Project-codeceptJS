@@ -11,8 +11,8 @@ jobs:
       - browser-tools/install-browser-tools
       - node/install-packages
       - run:
-          command: npm i fixer
-          command: npx codeceptjs run
+          command: npm i fixer, npx codeceptjs run
+          
       - store_test_results:
           path: /output
 workflows:
