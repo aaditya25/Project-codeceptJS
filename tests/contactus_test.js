@@ -1,5 +1,6 @@
 const userreg = require("../Pages/userreg");
 const contact_us = require("../Pages/contact_us");
+var faker = require('faker');
 
 Feature('Contact Us form');
 
@@ -20,7 +21,7 @@ Scenario('Contact us by entering all the details', ({ I, signinpage }) => {
     I.selectOption(contact_us.fields.order_ref, '287053');
     I.scrollTo(contact_us.fields.message);
     I.selectOption(contact_us.fields.product, '0');
-    I.fillField(contact_us.fields.message, 'This is for testing purpose');
+    I.fillField(contact_us.fields.message, faker.lorem.lines);
     I.click(contact_us.fields.send);
 
     //Assertion to check if request is sent
