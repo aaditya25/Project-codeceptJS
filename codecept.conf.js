@@ -10,7 +10,7 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: 'http://automationpractice.com/index.php',
-      show: true,
+      show: false,
       windowSize: '1366x830'
     }
   },

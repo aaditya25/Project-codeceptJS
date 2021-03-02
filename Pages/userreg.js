@@ -1,4 +1,6 @@
 const { I } = inject();
+const { fake } = require('faker');
+var faker = require('faker');
 
 module.exports = {
     fields: {
@@ -18,7 +20,7 @@ module.exports = {
         city: '#city',
         country: '#id_country',
         state: '#id_state',
-        psotcode: '#postcode',
+        postcode: '#postcode',
         otherdata: '#other',
         phone: '#phone',
         mobile_phone: '#phone_mobile',
@@ -39,29 +41,29 @@ module.exports = {
         I.see('Authentication');
     },
     async newuserreg() {
-        I.fillField(this.fields.regemail, 'aaadddiii@gmail.com');
+        I.fillField(this.fields.regemail, faker.internet.email());
         I.click(this.fields.user_create);
-        I.wait(20);
+        I.wait(3);
         const radio_button = this.fields.gender;
         I.checkOption(radio_button)
-        I.fillField(this.fields.firstname, 'Aditya');
-        I.fillField(this.fields.lastname, 'Chaudhari');
-        I.fillField(this.fields.setpassword, 'Aditya@123');
-        I.selectOption(this.fields.birthdate, '20');
-        I.selectOption(this.fields.birthmonth, '4')
-        I.selectOption(this.fields.birthyear, '1990');
-        I.fillField(this.fields.company, 'Ansang');
-        I.fillField(this.fields.address, 'Thane');
-        I.fillField(this.fields.city, 'Mumbai');
+        I.fillField(this.fields.firstname, faker.name.firstName());
+        I.fillField(this.fields.lastname, faker.name.lastName());
+        I.fillField(this.fields.setpassword, faker.internet.password());
+        I.selectOption(this.fields.birthdate,'20');
+        I.selectOption(this.fields.birthmonth, '4');
+        I.selectOption(this.fields.birthyear, '2000');
+        I.fillField(this.fields.company, faker.company.companyName());
+        I.fillField(this.fields.address, faker.address.streetAddress());
+        I.fillField(this.fields.city, faker.address.city());
         I.selectOption(this.fields.country, '21');
         I.selectOption(this.fields.state, '2');
-        I.fillField(this.fields.psotcode, '99501');
-        I.fillField(this.fields.otherdata, 'This is only for testing purpose');
-        I.fillField(this.fields.phone, '123456789');
-        I.fillField(this.fields.mobile_phone, '987654321');
-        I.fillField(this.fields.alias, 'My family');
+        I.fillField(this.fields.postcode, '12354');
+        I.fillField(this.fields.otherdata, faker.lorem.sentence());
+        I.fillField(this.fields.phone, faker.phone.phoneNumberFormat());
+        I.fillField(this.fields.mobile_phone, faker.phone.phoneNumberFormat());
+        I.fillField(this.fields.alias, faker.name.firstName());
         I.click(this.fields.submit_data);
         I.see('Welcome to your account. Here you can manage all of your personal information and orders.');
-        I.wait(5);
+        I.wait(2);
     }
 }
