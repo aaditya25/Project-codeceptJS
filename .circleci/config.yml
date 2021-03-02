@@ -10,8 +10,8 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools
       - node/install-packages
-      - node/install-fixer
       - run:
+          command: npm i fixer
           command: npx codeceptjs run
       - store_test_results:
           path: /output
